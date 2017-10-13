@@ -1,0 +1,100 @@
+﻿@model IEnumerable<GummiBearKingdom.Models.Post>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="container">
+    @foreach (var post in Model)
+    {
+    <div class="row">
+        <div class="col-md-12">
+            <div id="postlist">
+                <div class="panel">
+                    <div class="panel-heading">
+                        
+                            <div class="row">
+                                <div class="col-sm-9">
+                                    <h3>@Html.DisplayFor(m => post.Title)</h3>
+                                </div>
+                                <div class="col-sm-3">
+                                    <p class="post-date">@Html.DisplayFor(m => post.PostDate)</p>
+                                </div>
+                            </div>
+                            <p>@Html.DisplayFor(m => post.Author)</p>
+                        
+                    </div>
+
+                    <div class="panel-body">
+                        @Html.DisplayFor(m => post.TextBody)
+                    </div>
+
+                    <div class="panel-footer">
+                        <span class="label label-default">@Html.DisplayFor(m => post.Topic)</span>
+                        <div class="post-admin">
+                            <span class="edit-post">@Html.ActionLink("Edit", "Edit", "Posts", new { id = post.ID }) |</span>
+                            <span>@Html.ActionLink("Delete", "Delete", "Posts", new { id = post.ID })</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+   
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TextBody)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Topic)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PostDate)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TextBody)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Topic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
