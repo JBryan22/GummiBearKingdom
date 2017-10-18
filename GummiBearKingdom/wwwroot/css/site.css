@@ -4,16 +4,77 @@
     padding-bottom: 20px;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration:none;
+}
+
+h1, h2, h3 {
+    text-align:center;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    border: 1px solid black;
+    background-color: #fffddb;
 }
 
-.navbar {
+header {
     background-image: url(../images/cbr-header.png);
-    border: none;
-    border-radius:0;
-    padding: 25px 0;
+    padding: 30px 0;
+    width:100%;
+}
+
+header ul li
+{
+    font-size:1.3em;
+    color:white !important;
+    display: inline-block;
+    margin: 10px 5%;
+    padding-top:10px;
+}
+
+footer {
+    text-align: center;
+}
+
+.post-title {
+    position:relative;
+    top:-10px;
+    left:15px;
+}
+
+.post-date {
+    font-size:0.8em;
+    font-style:italic;
+    position:absolute;
+    right:30px;
+    top:8px;
+}
+
+.post-line {
+    position:relative;
+    top:-17px;
+}
+
+.post-author, .panel-body {
+    text-align: center;
+    position:relative;
+    top:-20px;
+}
+
+.post-author {
+    font-size: 1.2em;
+}
+
+.post-admin {
+    position:absolute;
+    right:30px;
+    bottom:32px;
 }
